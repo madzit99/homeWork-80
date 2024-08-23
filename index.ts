@@ -3,6 +3,7 @@ import cors from "cors";
 import mysqlDb from "./mysqldb";
 import placesRouter from "./routers/places";
 import categoriesRouter from "./routers/categories";
+import itemsRouter from "./routers/items";
 
 const app = express();
 const port = 8000;
@@ -10,6 +11,7 @@ const port = 8000;
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cors());
+app.use("/items", itemsRouter);
 
 app.use("/places", placesRouter);
 app.use("/categories", categoriesRouter);
